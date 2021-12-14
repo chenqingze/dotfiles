@@ -7,7 +7,7 @@
 	```
 	brew install rcm
 	```
-Other version refer :https://github.com/thoughtbot/rcm
+	Other version refer :https://github.com/thoughtbot/rcm
 
 2. clone this repo to your $HOME directory
 

@@ -2,8 +2,7 @@
 **A set of emacs, vim, zsh, git, and other configuration files.**
 
 ## Installation
-1. Install rcm 
-
+1. Install rcm (for mac)
 	```
 	brew install rcm
 	```

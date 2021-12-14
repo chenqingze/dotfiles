@@ -9,7 +9,7 @@ brew install rcm
 ```
 Other version and rcm refer :https://github.com/thoughtbot/rcm
 
-### 2. Clone this repo to your $HOME directory
+### 2. Clone this repo to your $HOME/.dotfiles directory
 
 ```
 git clone git@github.com:chenqingze/dotfiles.git .dotfiles

@@ -14,6 +14,7 @@ Other version and rcm refer :https://github.com/thoughtbot/rcm
 ```
 git clone git@github.com:chenqingze/dotfiles.git .dotfiles
 ```
+***please edit .gitconfig file ,make sure your github information is correct !!!***
 
 ### 3. run rcm commandline
 

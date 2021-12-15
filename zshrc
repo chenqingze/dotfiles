@@ -67,5 +67,3 @@ jdk 11
 
 # node env
 export PATH="/usr/local/opt/node@16/bin:$PATH"
-
-

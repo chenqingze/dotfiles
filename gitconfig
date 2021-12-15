@@ -8,3 +8,5 @@
 	logOutputEncoding = utf-8
 [core]
 	quotePath = false
+[pull]
+	rebase = true

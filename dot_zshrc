@@ -1,0 +1,20 @@
+source ~/.zsh/zsh.sh
+
+# Local config
+#[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/sbin:$PATH
+
+# set language environment
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+#export LANG="zh_CN.UTF-8"
+#export LC_ALL="zh_CN.UTF-8"
+
+# java env
+jdk 11 
+
+# node env
+export PATH="/usr/local/opt/node@16/bin:$PATH"
+

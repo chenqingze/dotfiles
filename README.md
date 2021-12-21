@@ -10,6 +10,15 @@ Set zsh as your login shell:
 chsh -s $(which zsh) 
 ```
 
+preinstall [lsd](https://github.com/Peltoche/lsd) 、 [autojump](https://github.com/wting/autojump)   
+
+[For MacOS]
+
+```
+brew install lsd   
+brew install autojump 
+```
+
 Install
 -------
 1. Install [chezmoi](https://www.chezmoi.io)  

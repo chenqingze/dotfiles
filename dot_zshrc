@@ -19,3 +19,7 @@ jdk 11
 export PATH="/usr/local/opt/node@16/bin:$PATH"
 # docker data home
 export DOCKER_DATA=$HOME/.docker_data
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

@@ -13,13 +13,10 @@ export LC_ALL="en_US.UTF-8"
 #export LC_ALL="zh_CN.UTF-8"
 
 # java env
-jdk 11 
+jdk 17
 
 # node env
 export PATH="/usr/local/opt/node@16/bin:$PATH"
 # docker data home
 export DOCKER_DATA=$HOME/.docker_data
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)

@@ -20,3 +20,6 @@ export DOCKER_DATA=$HOME/.docker_data
 
 # node version
 export PATH="/usr/local/opt/node@18/bin:$PATH"
+
+# postgresql 
+export PATH="/usr/local/opt/postgresql@15/bin:$PATH"

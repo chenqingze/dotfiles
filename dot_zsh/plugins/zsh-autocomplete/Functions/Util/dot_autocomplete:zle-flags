@@ -1,13 +1,13 @@
 #!/bin/zsh
-typeset -gH _autocomplete__last_widget=
+typeset -g _autocomplete__last_widget=
 
-.autocomplete.zle-flags() {
+.autocomplete:zle-flags() {
   emulate -L zsh
   setopt $_autocomplete__func_opts[@]
 
   # If no arg, assume same widget as last time.
   [[ -v 1 && -n $1 ]] &&
-      typeset -gH _autocomplete__last_widget="$1"
+      typeset -g _autocomplete__last_widget="$1"
 
   # Return 0 to continue, 1 to abort.
   case $_autocomplete__last_widget in
@@ -29,4 +29,4 @@ typeset -gH _autocomplete__last_widget=
   esac
 }
 
-.autocomplete.zle-flags "$@"
+.autocomplete:zle-flags "$@"

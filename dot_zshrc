@@ -13,13 +13,9 @@ export LC_ALL="en_US.UTF-8"
 #export LC_ALL="zh_CN.UTF-8"
 
 # java env
-jdk 17
 
-# docker data home
-export DOCKER_DATA=$HOME/.docker_data
+# rust home
 
 # node version
-export PATH="/usr/local/opt/node@20/bin:$PATH"
 
 # postgresql 
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"

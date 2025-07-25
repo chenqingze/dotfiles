@@ -1,0 +1,54 @@
+" ========================
+" 启用vim 默认配置     {{{
+" ========================
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+" }}}
+
+
+" ========================
+" 自动安装 vim-plug    {{{
+" ========================
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  " 安装完后自动安装插件并重新加载配置
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" }}}
+
+
+" ========================
+" 📦 List Plugins      {{{
+" ========================
+call plug#begin()
+
+" NERDTree 
+Plug 'preservim/nerdtree'
+
+
+call plug#end()
+" }}}
+
+
+" ========================
+" ⚙️  General Settings  {{{
+" ========================
+set number              " 行号
+set foldmethod=marker   " {{{ 和 }}} 来标记折叠区域
+set foldlevel=0         " 启动时默认全部折叠
+set foldenable          " 确保启用折叠功能
+
+set expandtab           " 按 Tab 插入空格
+set tabstop=4           " 一个 Tab 等于4个空格宽度（显示宽度）
+set shiftwidth=4        " >> << 缩进时使用4个空格宽度
+set softtabstop=4       " 按 Tab 键时插入4个空格
+" }}}
+
+
+" ========================
+" ✅ 启动时自动更插件  {{{
+" ========================
+" ==== 选项（可选）：启动时自动更新插件（慎用） ====
+" 自动更新插件会影响启动速度，建议只在需要时启用
+" autocmd VimEnter * PlugUpdate --sync | source $MYVIMRC
+" }}}

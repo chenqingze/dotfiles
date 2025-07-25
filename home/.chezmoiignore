@@ -1,0 +1,15 @@
+README.md
+.vim/plugged/
+.vim/plugged/**
+.vim/autoload/
+.vim/autoload/**
+.vim/undo/
+.vim/undo/**
+.vim/swap/
+.vim/swap/**
+.vim/backup/
+.vim/backup/**
+.vim/session/
+.vim/session/**
+.vim/.viminfo
+.vim/.netrwhist

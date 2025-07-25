@@ -1,0 +1,10 @@
+source ~/.zsh/zsh.sh
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# set language environment
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+#export LANG="zh_CN.UTF-8"
+#export LC_ALL="zh_CN.UTF-8"

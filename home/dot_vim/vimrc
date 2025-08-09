@@ -22,13 +22,22 @@ endif
 " ========================
 call plug#begin()
 
+" Low-contrast Vim color scheme based on Seoul Colors
+Plug 'junegunn/seoul256.vim'
+
 " NERDTree 
 Plug 'preservim/nerdtree'
 
+" Markdown
+Plug 'preservim/vim-markdown'
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 " }}}
 
+" Color schemes should be loaded after plug#end().
+" We prepend it with 'silent!' to ignore errors when it's not yet installed.
+silent! colorscheme seoul256
 
 " ========================
 " ⚙️  General Settings  {{{

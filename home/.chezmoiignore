@@ -13,3 +13,4 @@ README.md
 .vim/session/**
 .vim/.viminfo
 .vim/.netrwhist
+.DS_Store

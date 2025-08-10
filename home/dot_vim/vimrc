@@ -22,9 +22,14 @@ endif
 " ========================
 call plug#begin()
 
+" --- Normal模式下自动切换为英文输入法 -- {{{
+Plug 'chenqingze/smartim'
+let g:smartim_default = 'com.apple.keylayout.ABC'
+" }}}
+
 " --- 主题配色方案（colorscheme）--- {{{
 Plug 'junegunn/seoul256.vim'
-let g:seoul256_background = 237
+let g:seoul256_background = 236
 " }}}
 
 " ---  文件树 --- {{{
@@ -63,6 +68,7 @@ call plug#end()
 " Color schemes should be loaded after plug#end().
 " We prepend it with 'silent!' to ignore errors when it's not yet installed.
 silent! colorscheme seoul256
+
 
 " ========================
 " ⚙️  General Settings  {{{

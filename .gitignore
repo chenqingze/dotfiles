@@ -203,3 +203,4 @@ Backup of *.doc*
 *.~vsd*
 /.ideaDataSources/
 /dataSources/
+dot_DS_Store

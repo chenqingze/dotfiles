@@ -29,8 +29,6 @@ HISTFILE=~/.zhistory  # History filepath
 HISTSIZE=4096         # Maximum events for internal history
 SAVEHIST=4096         # Maximum events in history file
 
-export ERL_AFLAGS="-kernel shell_history enabled"
-
 # 设置 fpath (Zsh 查找补全定义和函数的地方)
 # 确保你的自定义补全目录在列表中
 fpath=(
@@ -40,15 +38,5 @@ fpath=(
   #/usr/share/zsh/site-functions       		# Linux 系统的默认 Zsh 共享函数
   $fpath
 )
-
-# Make zsh know about hosts already accessed by SSH
-zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-# 启用颜色
-autoload -U colors && colors
-# enable colored output from ls, etc. 
-#export CLICOLOR=true
-#export LSCOLORS=GxFxCxDxBxegedabagaced
-#export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 #echo "✅ base config completed!"

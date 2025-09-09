@@ -5,5 +5,3 @@ source "$CONFIG_DIR/theme.zsh"
 source "$CONFIG_DIR/plugins.zsh"
 source "$CONFIG_DIR/aliases.zsh"
 
-# load custom executable tools
-autoload load-tools && load-tools "$HOME/.zsh/tools"

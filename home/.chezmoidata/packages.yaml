@@ -6,10 +6,8 @@ packages:
     - 'tlrc'
     - 'autojump'
     - 'fzf'
-    - 'zsh-completions'
     - 'zsh-autocomplete'
     - 'zsh-autosuggestions'
     - 'zsh-syntax-highlighting'
-    - 'powerlevel10k'  
     casks:
     - 'font-hack-nerd-font'

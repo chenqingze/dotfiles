@@ -1,9 +1,0 @@
-# load custom executable functions
-load-tools(){
-  _dir="$1"
-  if [ -d "$_dir" ]; then
-    for function in "$_dir"/* ; do
-      source $function
-    done
-  fi
-}

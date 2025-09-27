@@ -1,4 +1,5 @@
 # Load config
+setopt interactive_comments
 source ~/.zsh/zsh.sh
 
 # Local config

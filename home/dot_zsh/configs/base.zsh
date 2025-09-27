@@ -26,13 +26,12 @@ fi
 # 设置历史记录
 setopt hist_ignore_all_dups inc_append_history
 HISTFILE=~/.zhistory  # History filepath
-HISTSIZE=4096         # Maximum events for internal history
-SAVEHIST=4096         # Maximum events in history file
+HISTSIZE=1000         # Maximum events for internal history
+SAVEHIST=2000         # Maximum events in history file
 
 # 设置 fpath (Zsh 查找补全定义和函数的地方)
 # 确保你的自定义补全目录在列表中
 fpath=(
-  ~/.zsh/functions                  		# 你的自定义函数
   /usr/local/share/zsh/site-functions 		# Homebrew 等第三方包的函数
   $(brew --prefix)/share/zsh-completions 	# 如果使用 Homebrew，额外的补全
   #/usr/share/zsh/site-functions       		# Linux 系统的默认 Zsh 共享函数

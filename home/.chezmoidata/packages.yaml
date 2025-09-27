@@ -3,6 +3,8 @@ packages:
     brews:
     - 'lsd'
     - 'git'
+    - 'gradle-completion'
+    - 'pure'
     - 'tlrc'
     - 'autojump'
     - 'fzf'
@@ -12,3 +14,8 @@ packages:
     - 'zsh-syntax-highlighting'
     casks:
     - 'font-hack-nerd-font'
+    - 'iterm2'
+    - 'monitorcontrol'
+    - 'pearcleaner'
+    - 'stats'
+    - 'obsidian'

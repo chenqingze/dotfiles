@@ -11,7 +11,7 @@ else
   echo "✅ Homebrew already installed"
 fi
 
-# 2. 确保 brew 路径生效（兼容 Intel/M1/M2）
+# 2. 确保 brew 路径生效（兼容 Intel/M1/M2/M3/M4...）
 if [[ -x "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ -x "/usr/local/bin/brew" ]]; then

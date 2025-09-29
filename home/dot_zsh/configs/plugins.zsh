@@ -1,4 +1,4 @@
-source "/usr/local/share/autojump/autojump.zsh"
+source "$(brew --prefix)/share/autojump/autojump.zsh"
 source <(fzf --zsh)
 source "$(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"

@@ -4,7 +4,7 @@ packages:
     - 'lsd'
     - 'git'
     - 'gradle-completion'
-    - 'pure'
+    - 'starship'
     - 'tlrc'
     - 'autojump'
     - 'fzf'

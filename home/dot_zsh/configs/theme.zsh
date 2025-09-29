@@ -2,7 +2,8 @@
 # -----------------------------------------------------------------------------
 # 主题配置
 # -----------------------------------------------------------------------------
-autoload -U promptinit; promptinit
-prompt pure
+
+# initialize starship
+eval "$(starship init zsh)"
 
 #echo "✅ theme config completed!"

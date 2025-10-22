@@ -13,7 +13,9 @@ packages:
     - 'zsh-autosuggestions'
     - 'zsh-syntax-highlighting'
     casks:
+    - 'font-meslo-lg-nerd-font'
     - 'font-hack-nerd-font'
+    - 'font-fira-code-nerd-font'
     - 'iterm2'
     - 'monitorcontrol'
     - 'pearcleaner'

@@ -2,8 +2,6 @@ packages:
   darwin:
     brews:
     - 'lsd'
-    - 'git'
-    - 'gradle-completion'
     - 'starship'
     - 'tlrc'
     - 'autojump'

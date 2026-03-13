@@ -50,17 +50,39 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 "autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " }}}
 
+" --- 模糊查找 --- {{{
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" }}}
+
+" --- 系统剪贴板 --- {{{
+Plug 'ojroques/vim-oscyank'
+" }}}
+
+" --- LSP --- {{{
+Plug 'yegappan/lsp'
+" }}}
+
 " --- 状态栏 --- {{{
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 " }}}
 
 " --- Markdown --- {{{
 Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'tpope/vim-markdown'
 " }}}
 
+" --- 代码快速注释 --- {{{
+Plug 'tpope/vim-commentary'
+" }}}
+
+" --- HTML --- {{{
+Plug 'alvan/vim-closetag'
+"}}}
+"
+" --- Rust --- {{{
+Plug 'rust-lang/rust.vim'
+"}}}
 
 call plug#end()
 " }}}
@@ -84,6 +106,41 @@ set shiftwidth=4        " >> << 缩进时使用4个空格宽度
 set softtabstop=4       " 按 Tab 键时插入4个空格
 " }}}
 
+" ========================
+" ⚙️  LSP Configuration {{{
+" ========================
+let lspOpts = #{autoHighlightDiags: v:true}
+autocmd User LspSetup call LspOptionsSet(lspOpts)
+
+let lspServers = [
+    \ #{
+    \    name: 'marksman',
+    \    filetype: ['markdown'],
+    \    path: 'marksman',
+    \    args: ['server']
+    \ },
+    \ #{
+    \   name: 'rust-analyzer',
+    \   filetype: ['rust'],
+    \   path: 'rust-analyzer',
+    \   args: []
+    \ }
+    \ ]
+
+autocmd User LspSetup call LspAddServer(lspServers)
+
+" Set omnifunc for completion
+autocmd FileType markdown,rust setlocal omnifunc=lsp#complete
+
+" Custom diagnostic sign characters
+autocmd User LspSetup call LspOptionsSet(#{
+    \   diagSignErrorText: '✘',
+    \   diagSignWarningText: '▲',
+    \   diagSignInfoText: '»',
+    \   diagSignHintText: '⚑',
+    \ })
+
+" }}}
 
 " ========================
 " ✅ 启动时自动更插件  {{{

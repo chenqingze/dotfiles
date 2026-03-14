@@ -22,80 +22,64 @@ endif
 " ========================
 call plug#begin()
 
-" --- Normal模式下自动切换为英文输入法 -- {{{
+" --- 启动界面 ---
+Plug 'mhinz/vim-startify'
+
+" --- Normal模式下自动切换为英文输入法 -- 
 Plug 'chenqingze/smartim'
 let g:smartim_default = 'com.apple.keylayout.ABC'
-" }}}
 
-" --- 主题配色方案（colorscheme）--- {{{
-Plug 'junegunn/seoul256.vim'
-let g:seoul256_background = 236
-" }}}
+" --- nerd icon --- 
+Plug 'ryanoasis/vim-devicons'
 
-" ---  文件树 --- {{{
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons' " 文件图标（需安装 Nerd Fonts）
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
-" }}}
-
-" --- 模糊查找 --- {{{
-Plug 'junegunn/fzf'
+"--- 文件浏览 模糊查找 --- 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" }}}
 
-" --- 系统剪贴板 --- {{{
+" --- 系统剪贴板 --- 
 Plug 'ojroques/vim-oscyank'
-" }}}
 
-" --- LSP --- {{{
+" --- LSP --- 
 Plug 'yegappan/lsp'
-" }}}
 
-" --- 状态栏 --- {{{
+" --- 状态栏 --- 
 Plug 'itchyny/lightline.vim'
-" }}}
 
-" --- Markdown --- {{{
+" --- Markdown --- 
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-markdown'
-" }}}
 
-" --- 代码快速注释 --- {{{
+" --- 成对符号编辑 ---
+Plug 'tpope/vim-surround'
+
+" --- 成对符号自动补全 ---
+Plug 'jiangmiao/auto-pairs'
+
+" --- 让 . 命令支持插件动作 ---
+Plug 'tpope/vim-repeat' 
+
+" --- 大纲视图 ---
+Plug 'liuchengxu/vista.vim'
+
+" --- 代码快速注释 --- 
 Plug 'tpope/vim-commentary'
-" }}}
 
-" --- HTML --- {{{
+" --- HTML自动标签 --- 
 Plug 'alvan/vim-closetag'
-"}}}
-"
-" --- Rust --- {{{
+
+" --- Rust --- 
 Plug 'rust-lang/rust.vim'
-"}}}
 
 call plug#end()
 " }}}
 
-" Color schemes should be loaded after plug#end().
-" We prepend it with 'silent!' to ignore errors when it's not yet installed.
-silent! colorscheme seoul256
-
-
 " ========================
 " ⚙️  General Settings  {{{
 " ========================
+set encoding=UTF-8      " 配置默认字符集
+set laststatus=2        " 开启状态栏目
 set number              " 行号
+"set relativenumber     " 在其他行显示相对于当前行的距离
 set foldmethod=marker   " {{{ 和 }}} 来标记折叠区域
 set foldlevel=0         " 启动时默认全部折叠
 set foldenable          " 确保启用折叠功能
@@ -104,6 +88,16 @@ set expandtab           " 按 Tab 插入空格
 set tabstop=4           " 一个 Tab 等于4个空格宽度（显示宽度）
 set shiftwidth=4        " >> << 缩进时使用4个空格宽度
 set softtabstop=4       " 按 Tab 键时插入4个空格
+
+set autoindent          " 换行时，自动保持与上一行相同的缩进水平
+set smartindent         " autoindent的基础上自动增加或减少缩进
+set showmatch           " 当光标移动到括号（(), [], {}）上时，短暂高亮显示对应的另一半括号
+
+syntax on               " 开启语法高亮
+
+set termguicolors       " 开启真色支持
+colorscheme habamax     " 指定配色方案
+
 " }}}
 
 " ========================

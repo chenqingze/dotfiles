@@ -5,6 +5,10 @@
 # -----------------------------------------------------------------------------
 
 # PATH 配置 
+# Homebrew 核心环境初始化
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 # 确保本地系统管理bin目录存在且可执行
 if [ -d "/usr/local/sbin" ] && [[ ":$PATH:" != *":/usr/local/sbin:"* ]]; then
     export PATH="/usr/local/sbin:$PATH"

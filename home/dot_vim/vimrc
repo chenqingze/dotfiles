@@ -36,21 +36,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" --- 系统剪贴板 --- 
-Plug 'ojroques/vim-oscyank'
-
 " --- LSP --- 
 Plug 'yegappan/lsp'
 
 " --- 状态栏 --- 
 Plug 'itchyny/lightline.vim'
-
-" --- Markdown --- 
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-markdown'
-
-" --- 成对符号编辑 ---
-Plug 'tpope/vim-surround'
 
 " --- 成对符号自动补全 ---
 Plug 'jiangmiao/auto-pairs'
@@ -58,14 +48,8 @@ Plug 'jiangmiao/auto-pairs'
 " --- 让 . 命令支持插件动作 ---
 Plug 'tpope/vim-repeat' 
 
-" --- 大纲视图 ---
-Plug 'liuchengxu/vista.vim'
-
 " --- 代码快速注释 --- 
 Plug 'tpope/vim-commentary'
-
-" --- HTML自动标签 --- 
-Plug 'alvan/vim-closetag'
 
 " --- Rust --- 
 Plug 'rust-lang/rust.vim'
@@ -107,12 +91,6 @@ let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
 
 let lspServers = [
-    \ #{
-    \    name: 'marksman',
-    \    filetype: ['markdown'],
-    \    path: 'marksman',
-    \    args: ['server']
-    \ },
     \ #{
     \   name: 'rust-analyzer',
     \   filetype: ['rust'],

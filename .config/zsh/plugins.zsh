@@ -25,12 +25,20 @@ compinit
 
 
 # ------------------------------------------------------------
+# zoxide
+# ------------------------------------------------------------
+
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
+
+# ------------------------------------------------------------
 # autojump
 # ------------------------------------------------------------
 
-if [[ -f "$BREW_PREFIX/share/autojump/autojump.zsh" ]]; then
-    source "$BREW_PREFIX/share/autojump/autojump.zsh"
-fi
+# if [[ -f "$BREW_PREFIX/share/autojump/autojump.zsh" ]]; then
+#     source "$BREW_PREFIX/share/autojump/autojump.zsh"
+# fi
 
 
 # ------------------------------------------------------------
@@ -65,4 +73,13 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts \
 if [[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
     source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi 
+
+
+# ------------------------------------------------------------
+# zsh-you-should-use
+# ------------------------------------------------------------
+
+if [[ -f "$BREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh" ]]; then
+    source "$BREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh"
+fi
 

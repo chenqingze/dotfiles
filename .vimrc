@@ -28,7 +28,7 @@ set mouse=                      # defaults enables mouse; keyboard-only
 set ttimeoutlen=50              # defaults=100; snappier Esc + IME switch
 set number 
 set cursorline
-set signcolumn=yes
+set signcolumn=auto
 set sidescrolloff=8
 set hidden
 set hlsearch

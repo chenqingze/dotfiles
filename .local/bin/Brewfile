@@ -1,5 +1,7 @@
 brew "lsd"
 brew "starship"
+brew "zsh-you-should-use"
+brew "zoxide"
 brew "autojump"
 brew "zsh-completions"
 brew "zsh-autosuggestions"

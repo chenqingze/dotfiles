@@ -10,25 +10,6 @@ fi
 
 
 # ------------------------------------------------------------
-# Completion definitions
-# ------------------------------------------------------------
-
-if [[ -d "$BREW_PREFIX/share/zsh-completions" ]]; then
-    fpath=(
-        "$BREW_PREFIX/share/zsh-completions"
-        $fpath
-    )
-fi
-
-if [[ -d /usr/local/share/zsh/site-functions ]]; then
-    fpath=(
-        /usr/local/share/zsh/site-functions
-        $fpath
-    )
-fi
-
-
-# ------------------------------------------------------------
 # autojump
 # ------------------------------------------------------------
 
@@ -47,11 +28,21 @@ fi
 
 
 # ------------------------------------------------------------
-# zsh-autocomplete
+# Completion definitions
 # ------------------------------------------------------------
 
-if [[ -f "$BREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ]]; then
-    source "$BREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+if [[ -d "$BREW_PREFIX/share/zsh-completions" ]]; then
+    fpath=(
+        "$BREW_PREFIX/share/zsh-completions"
+        $fpath
+    )
+fi
+
+if [[ -d /usr/local/share/zsh/site-functions ]]; then
+    fpath=(
+        /usr/local/share/zsh/site-functions
+        $fpath
+    )
 fi
 
 
@@ -73,8 +64,7 @@ if [[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi 
 
 #zsh-autocomplete key mapping
-# bindkey              '^I'         menu-complete
-# bindkey "$terminfo[kcbt]" reverse-menu-complete
-#zstyle '*:compinit' arguments -D -i -u -C -w
+bindkey              '^I'         menu-complete
+bindkey "$terminfo[kcbt]" reverse-menu-complete
 ##Make zsh know about hosts already accessed by SSH
-# zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'

@@ -10,6 +10,21 @@ fi
 
 
 # ------------------------------------------------------------
+# Completion definitions
+# ------------------------------------------------------------
+
+if [[ -d "$BREW_PREFIX/share/zsh-completions" ]]; then
+    fpath=(
+        "$BREW_PREFIX/share/zsh-completions"
+        $fpath
+    )
+fi
+
+autoload -Uz compinit
+compinit
+
+
+# ------------------------------------------------------------
 # autojump
 # ------------------------------------------------------------
 
@@ -28,25 +43,6 @@ fi
 
 
 # ------------------------------------------------------------
-# Completion definitions
-# ------------------------------------------------------------
-
-if [[ -d "$BREW_PREFIX/share/zsh-completions" ]]; then
-    fpath=(
-        "$BREW_PREFIX/share/zsh-completions"
-        $fpath
-    )
-fi
-
-if [[ -d /usr/local/share/zsh/site-functions ]]; then
-    fpath=(
-        /usr/local/share/zsh/site-functions
-        $fpath
-    )
-fi
-
-
-# ------------------------------------------------------------
 # zsh-autosuggestions
 # ------------------------------------------------------------
 
@@ -56,6 +52,13 @@ fi
 
 
 # ------------------------------------------------------------
+# SSH host completion
+# ------------------------------------------------------------
+
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts \
+    'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+# ------------------------------------------------------------
 # zsh-syntax-highlighting
 # ------------------------------------------------------------
 
@@ -63,8 +66,3 @@ if [[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi 
 
-#zsh-autocomplete key mapping
-bindkey              '^I'         menu-complete
-bindkey "$terminfo[kcbt]" reverse-menu-complete
-##Make zsh know about hosts already accessed by SSH
-zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'

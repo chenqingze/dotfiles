@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = main
+[user]
+	name = ChenQingze
+	email = chenqingze107@gmail.com
+[i18n]
+	commitEncoding = utf-8
+	logOutputEncoding = utf-8
+[core]
+	quotePath = false
+[pull]
+	rebase = true

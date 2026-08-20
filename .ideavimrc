@@ -1,0 +1,106 @@
+" =============================================================================
+" IdeaVim — 与 ~/.vim/vimrc 同结构、同键位
+" =============================================================================
+
+" ---------------------------------------------------------------------------
+" bootstrap
+" ---------------------------------------------------------------------------
+let mapleader = " "
+let maplocalleader = "\\"
+
+set ideajoin
+set idearefactormode=keep
+set ideastatusicon=enabled
+
+" ---------------------------------------------------------------------------
+" editor options
+" ---------------------------------------------------------------------------
+set clipboard+=unnamed
+set hlsearch ignorecase smartcase
+set number
+set scrolloff=5
+set timeoutlen=400
+
+" ---------------------------------------------------------------------------
+" files — Project 工具窗（对标 netrw）
+" <Space>e  侧栏    <Space>E  定位当前文件
+" ---------------------------------------------------------------------------
+map <leader>e <Action>(ActivateProjectToolWindow)
+map <leader>E <Action>(SelectInProjectView)
+
+" ---------------------------------------------------------------------------
+" windows / buffers
+" ---------------------------------------------------------------------------
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <leader>w <C-w>w
+map <leader>sv <Action>(SplitVertically)
+map <leader>sh <Action>(SplitHorizontally)
+map <leader>q  <Action>(CloseContent)
+map <leader>bd <Action>(CloseContent)
+map <leader>bn <Action>(NextTab)
+map <leader>bp <Action>(PreviousTab)
+map <leader><Tab> <Action>(NextTab)
+nnoremap <leader>/ :nohlsearch<CR>
+map ]q <Action>(GotoNextError)
+map [q <Action>(GotoPreviousError)
+map <leader>h  <Action>(HideAllWindows)
+
+" ---------------------------------------------------------------------------
+" find — IDE 导航（对标 fzf）
+" ---------------------------------------------------------------------------
+map <leader>ff <Action>(GotoFile)
+map <leader>fg <Action>(FindInPath)
+map <leader>fb <Action>(Switcher)
+map <leader>fh <Action>(RecentFiles)
+map <leader>fl <Action>(Find)
+map <leader>fc <Action>(GotoAction)
+map <leader>fF <Action>(SearchEverywhere)
+
+" ---------------------------------------------------------------------------
+" motion — sneak（对标 vim-sneak；IDEA 插件里打开 sneak）
+" s/S 由 set sneak 提供，不必再 map
+" ---------------------------------------------------------------------------
+set sneak
+
+" ---------------------------------------------------------------------------
+" edit — surround / commentary / multiple-cursors
+" cs/ds/ys  gc/gcc  <C-n>
+" ---------------------------------------------------------------------------
+set surround
+set commentary
+set multiple-cursors
+set highlightedyank
+
+" ---------------------------------------------------------------------------
+" run / debug / git / terminal
+" ---------------------------------------------------------------------------
+map <leader>tt <Action>(ActivateTerminalToolWindow)
+map <leader>td <Action>(Debug)
+map <leader>d  <Action>(Debug)
+map <leader>ru <Action>(Run)
+map <leader>rs <Action>(Stop)
+map <leader>b  <Action>(ToggleLineBreakpoint)
+map <leader>ga <Action>(Annotate)
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>z  <Action>(ToggleDistractionFreeMode)
+
+" ---------------------------------------------------------------------------
+" lsp — IntelliJ 原生（对标 yegappan/lsp）
+" ---------------------------------------------------------------------------
+map gd <Action>(GotoDeclaration)
+map gD <Action>(GotoTypeDeclaration)
+map gi <Action>(GotoImplementation)
+map gy <Action>(GotoTypeDeclaration)
+map gr <Action>(FindUsages)
+map K  <Action>(QuickJavaDoc)
+map <leader>rn <Action>(RenameElement)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>lf <Action>(ReformatCode)
+map <leader>o  <Action>(FileStructurePopup)
+map [g <Action>(GotoPreviousError)
+map ]g <Action>(GotoNextError)
+map <leader>xx <Action>(ActivateProblemsViewToolWindow)
+map <leader>a  <Action>(SwitchHeaderSource)

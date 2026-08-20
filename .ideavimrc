@@ -31,22 +31,41 @@ map <leader>E <Action>(SelectInProjectView)
 " ---------------------------------------------------------------------------
 " windows / buffers
 " ---------------------------------------------------------------------------
+" 导航
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <leader>w <C-w>w
+nnoremap <leader>w <C-w>w          " 下一个窗口
+nnoremap <leader>W <C-w>W          " 上一个窗口
+
+" 分屏
 map <leader>sv <Action>(SplitVertically)
 map <leader>sh <Action>(SplitHorizontally)
+map <leader>se <Action>(EditSourceInNewWindow)   " 当前文件新窗口打开
+
+" 取消分屏 / 只保留当前
+map <leader>sq <Action>(Unsplit)                 " 取消所有分屏，保留所有标签
+map <leader>so <Action>(UnsplitAll)              " 有时需要这个
+" 或者用 Vim 原生：
+" nnoremap <leader>so <C-w>o
+
+" 关闭
 map <leader>q  <Action>(CloseContent)
 map <leader>bd <Action>(CloseContent)
+map <leader>ba <Action>(CloseAllEditors)         " 关闭所有
+map <leader>bo <Action>(CloseAllEditorsButActive) " 只留当前
+
+" 标签页切换（你原来的 + 增强）
 map <leader>bn <Action>(NextTab)
 map <leader>bp <Action>(PreviousTab)
 map <leader><Tab> <Action>(NextTab)
+map <leader><S-Tab> <Action>(PreviousTab)
+
+" 其他常用
+map <leader>h  <Action>(HideAllWindows)          " 隐藏/恢复所有工具窗
+map <leader>z  <Action>(ToggleDistractionFreeMode)
 nnoremap <leader>/ :nohlsearch<CR>
-map ]q <Action>(GotoNextError)
-map [q <Action>(GotoPreviousError)
-map <leader>h  <Action>(HideAllWindows)
 
 " ---------------------------------------------------------------------------
 " find — IDE 导航（对标 fzf）
@@ -85,7 +104,7 @@ map <leader>rs <Action>(Stop)
 map <leader>b  <Action>(ToggleLineBreakpoint)
 map <leader>ga <Action>(Annotate)
 map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
-map <leader>z  <Action>(ToggleDistractionFreeMode)
+#map <leader>z  <Action>(ToggleDistractionFreeMode)
 
 " ---------------------------------------------------------------------------
 " lsp — IntelliJ 原生（对标 yegappan/lsp）

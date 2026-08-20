@@ -10,3 +10,5 @@
 	quotePath = false
 [pull]
 	rebase = true
+[core]
+    excludesfile = ~/.config/git/ignore

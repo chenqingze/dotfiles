@@ -82,9 +82,15 @@ map <leader>fF <Action>(SearchEverywhere)
 
 " ---------------------------------------------------------------------------
 " motion — sneak（对标 vim-sneak；IDEA 插件里打开 sneak）
-" s/S 由 set sneak 提供，不必再 map
 " ---------------------------------------------------------------------------
 set sneak
+let g:sneak#use_ic_scs = 1
+nmap <leader>s <Plug>Sneak_s
+nmap <leader>S <Plug>Sneak_S
+xmap <leader>s <Plug>Sneak_s
+xmap <leader>S <Plug>Sneak_S
+omap <leader>s <Plug>Sneak_s
+omap <leader>S <Plug>Sneak_S
 
 " ---------------------------------------------------------------------------
 " edit — surround / commentary / multiple-cursors

@@ -139,14 +139,14 @@ nnoremap <Leader>fF :find **/*
 # motion — justinmk/vim-sneak
 # s/S 双向跳    f/F/t/T 增强原生命令
 # ---------------------------------------------------------------------------
-g:sneak#label = 1
 g:sneak#use_ic_scs = 1
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
+g:sneak#label = 1
+nmap <leader>s <Plug>Sneak_s
+nmap <leader>S <Plug>Sneak_S
+xmap <leader>s <Plug>Sneak_s
+xmap <leader>S <Plug>Sneak_S
+omap <leader>s <Plug>Sneak_s
+omap <leader>S <Plug>Sneak_S
 
 # ---------------------------------------------------------------------------
 # ime - chenqingze/smartim (macOS only)

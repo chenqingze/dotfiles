@@ -52,7 +52,11 @@ dotfiles add ~/.config/zsh/aliases.zsh
 # Commit and push updates
 dotfiles commit -m "style: update vim bindings and zsh aliases"
 dotfiles push
+
+# Update vim plugins
+sh ~/.local/bin/vim-plugins-update.sh
 ```
+
 ## Restoring on a New Machine
 
 Execute the following steps to deploy your environment onto a clean operating system:

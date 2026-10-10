@@ -5,6 +5,8 @@ vim9script
 # Langs: Java / JS / TS / Swift / C / C++ / Rust
 # =============================================================================
 
+g:mapleader = ' '
+g:maplocalleader = '\'
 
 #---------------------------------------------------------------------------
 # bootstrap
@@ -19,9 +21,6 @@ packadd! editorconfig
 # load vimdefaults config 
 unlet! g:skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
-
-g:mapleader = ' '
-g:maplocalleader = '\'
 
 # global vim config      
 set mouse=                      # defaults enables mouse; keyboard-only
@@ -67,10 +66,9 @@ set tags=./tags;,tags;          # upward search (;); defaults lack ;
 # indent by filetype 
 augroup LangIndent
   autocmd!
-  autocmd FileType javascript,typescript,typescriptreact,javascriptreact,json,swift
-        \ setlocal tabstop=2 shiftwidth=2 softtabstop=2
-  autocmd FileType java,c,cpp,objc,objcpp
-        \ setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType javascript,typescript,typescriptreact,javascriptreact,json,swift  setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType java,c,cpp,objc,objcpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd FileType make setlocal noexpandtab
   autocmd FileType rust setlocal tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
@@ -97,9 +95,10 @@ enddef
 # ---------------------------------------------------------------------------
 g:netrw_banner = 0
 g:netrw_liststyle = 3
-g:netrw_browse_split = 4
+g:netrw_browse_split = 0  # 0: 在当前窗口打开选中的文件
 g:netrw_altv = 1
 g:netrw_winsize = 22
+g:netrw_keepdir = 0       # 让当前目录同步为 netrw 浏览的目录
 nnoremap <Leader>e <Cmd>Lexplore<CR>
 nnoremap <Leader>E <Cmd>Explore<CR>
 
@@ -267,12 +266,17 @@ augroup LspMaps
 augroup END
 
 # ---------------------------------------------------------------------------
+# 在 Insert 模式下用 Tab 触发 Vim 原生补全（如果 LSP 没接管）
+# ---------------------------------------------------------------------------
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+# ---------------------------------------------------------------------------
 # Colorscheme 
 # ---------------------------------------------------------------------------
 if has('termguicolors')
   set termguicolors
 endif
 set background=dark
-syntax enable
 colorscheme habamax
 

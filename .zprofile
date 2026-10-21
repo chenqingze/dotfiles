@@ -41,8 +41,8 @@ if [[ -d "$(brew --prefix node@24)/bin" ]]; then
     path=("$(brew --prefix node@24)/bin" $path)
 fi
 
-# Java 21
-if JAVA_HOME=$(/usr/libexec/java_home -v 21 2>/dev/null); then
+# Java 25
+if JAVA_HOME=$(/usr/libexec/java_home -v 25 2>/dev/null); then
     export JAVA_HOME
     path=("$JAVA_HOME/bin" $path)
 fi

@@ -177,12 +177,13 @@ tnoremap <Esc> <C-\><C-n>
 
 # ---------------------------------------------------------------------------
 # lsp — yegappan/lsp
-# gd/gD/gi/gy/gr/K  rn/ca/lf/o  [g ]g  xx  a(头↔源)
+# gd/gD/gi/gy/gr/K  rn/ca/lf/o  [d ]d  xx  a(头↔源)
 # ---------------------------------------------------------------------------
 g:lsp_options = {
   autoComplete: true,
   autoHighlightDiags: true,
-  showDiagWithVirtualText: true,
+  # showDiagWithVirtualText: true,
+  showDiagWithSign: true,
   showDiagInPopup: true,
   showSignature: true,
   completionMatcher: 'fuzzy',
@@ -209,7 +210,7 @@ g:lsp_servers = [
     filetype: ['java'],
     path: 'jdtls',
     args: [],
-    rootSearch: ['pom.xml', 'build.gradle', 'build.gradle.kts', '.git/'],
+    rootSearch: ['pom.xml', 'build.gradle', '.git/'],
     syncInit: true,
   },
   {
@@ -237,12 +238,27 @@ g:lsp_servers = [
       },
     },
   },
+  {
+    name: 'kotlin-lsp',
+    filetype: ['kotlin'],
+    path: 'kotlin-lsp',
+    args: ['--stdio'],
+    rootSearch: [
+        'settings.gradle.kts',
+        'settings.gradle',
+        'pom.xml',
+        '.git/',
+    ],
+    runIfSearch: [
+        'settings.gradle.kts',
+    ],
+  }
 ]
 
 packadd lsp
 
 def OnLspAttached()
-  setlocal tagfunc=lsp#lsp#TagFunc
+  # setlocal tagfunc=lsp#lsp#TagFunc
   setlocal formatexpr=lsp#lsp#FormatExpr()
   nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
   nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
@@ -250,14 +266,14 @@ def OnLspAttached()
   nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
   nnoremap <buffer> K  <Cmd>LspHover<CR>
-  nnoremap <buffer> <Leader>rn <Cmd>LspRename<CR>
+  nnoremap <buffer> grn <Cmd>LspRename<CR>
   nnoremap <buffer> <Leader>ca <Cmd>LspCodeAction<CR>
   nnoremap <buffer> <Leader>lf <Cmd>LspFormat<CR>
   nnoremap <buffer> <Leader>o  <Cmd>LspOutline<CR>
-  nnoremap <buffer> [g <Cmd>LspDiag prev<CR>
-  nnoremap <buffer> ]g <Cmd>LspDiag next<CR>
+  nnoremap <buffer> [d <Cmd>LspDiag prev<CR>
+  nnoremap <buffer> ]d <Cmd>LspDiag next<CR>
   nnoremap <buffer> <Leader>xx <Cmd>LspDiag show<CR>
-  nnoremap <buffer> <Leader>a <Cmd>LspSwitchSourceHeader<CR>
+  # nnoremap <buffer> <Leader>a <Cmd>LspSwitchSourceHeader<CR>
 enddef
 
 augroup LspMaps

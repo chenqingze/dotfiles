@@ -126,6 +126,7 @@ nnoremap [q <Cmd>cprev<CR>
 # find — fzf + fzf.vim（pack/start 自动加载）
 # ff 文件  fg 内容  fb buffer  fh 历史  fl 当前行  fc 命令  fF :find
 # --------------------------------------------------------------------------- 
+set rtp+=/opt/homebrew/opt/fzf
 nnoremap <Leader>ff <Cmd>Files<CR>
 nnoremap <Leader>fg <Cmd>Rg<CR>
 nnoremap <Leader>fb <Cmd>Buffers<CR>

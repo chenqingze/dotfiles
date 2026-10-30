@@ -6,6 +6,6 @@ command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubuser
 
 brew bundle install --file="$HOME/.local/bin/Brewfile"
 
-"$HOME/.local/bin/common-packages-install.sh"
+"$HOME/.local/bin/dev-env-install.sh"
 
 "$HOME/.local/bin/vim-plugins-install.sh"
